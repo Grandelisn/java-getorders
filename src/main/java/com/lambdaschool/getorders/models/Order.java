@@ -65,8 +65,8 @@ public class Order
      */
     public Order(double advanceamount,
                  double ordamount,
-                 String orderdescription,
-                 Customer customer) {
+                 Customer customer,
+                 String orderdescription) {
         this.advanceamount = advanceamount;
         this.ordamount = ordamount;
         this.orderdescription = orderdescription;
