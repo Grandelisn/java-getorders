@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+//The entity allowing interaction with the order's table
 @Entity
 @Table(name="orders")
 public class Order
@@ -37,7 +38,7 @@ public class Order
     @ManyToOne
     @JoinColumn(name="custcode",
         nullable=false)
-    @JsonIgnoreProperties("orders")
+    @JsonIgnoreProperties(value = "orders", allowSetters = true)
     private Customer customer;
     /*
      *  Creates a join table joining Orders and Payments in a Many-To-Many relation
@@ -47,7 +48,7 @@ public class Order
     @JoinTable(name="orderspayments",
         joinColumns = @JoinColumn(name="ordnum"),
         inverseJoinColumns = @JoinColumn(name="paymentid"))
-    @JsonIgnoreProperties("orders")
+    @JsonIgnoreProperties(value = "orders", allowSetters = true)
     Set<Payment> payments = new HashSet<>();
 
     //Default constructor used primarily by the JPA
@@ -63,8 +64,8 @@ public class Order
         @param orderdescription The description of this order (String)
                                 payments are added outside of this constructor
      */
-    public Order(double advanceamount,
-                 double ordamount,
+    public Order(double ordamount,
+                 double advanceamount,
                  Customer customer,
                  String orderdescription) {
         this.advanceamount = advanceamount;

@@ -23,7 +23,7 @@ public class Payment {
     //Creates a join table joining Orders and Payments in a Many-To-Many relation
     //Contains a list of Payment objects used by this order.
     @ManyToMany(mappedBy = "payments")
-    @JsonIgnoreProperties("payments")
+    @JsonIgnoreProperties(value = "payments", allowSetters = true)
     private Set<Order> orders = new HashSet<>();
 
     //Default constructor used primarily by the JPA

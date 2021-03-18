@@ -5,6 +5,8 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
+//The CRUD Repository connecting Customer to rest of the application
 public interface CustomersRepository extends CrudRepository<Customer, Long> {
-    List<Customer> findCustomersByCustnameContainingIgnoreCase(String name);
+
+    List<Customer> findByCustnameContainingIgnoreCase(String name);
 }

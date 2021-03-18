@@ -34,7 +34,7 @@ public class Agent {
     //List of the customers associated with this agent. Does not get saved in the database directly
     //Forms a One-To-Many relationship with customers. One agent to many customers
     @OneToMany(mappedBy = "agent", cascade= CascadeType.ALL, orphanRemoval = true)
-    @JsonIgnoreProperties(value="agent")
+    @JsonIgnoreProperties(value="agent", allowSetters = true)
     private List<Customer> customers = new ArrayList<>();
 
     //Default constructor used primarily by the JPA
@@ -151,6 +151,7 @@ public class Agent {
     public List<Customer> getCustomers(){
         return customers;
     }
+
     //Setter for customers
     //@param customers Replaces the list of customers associated with this agent with the this list
     public void setCustomers(List<Customer> customers){

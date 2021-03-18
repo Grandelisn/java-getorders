@@ -89,7 +89,7 @@ public class Customer {
                     String custcountry,
                     String grade,
                     double openingamt,
-                    double recievingamt,
+                    double receiveamt,
                     double paymentamt,
                     double outstandingamt,
                     String phone,
@@ -103,7 +103,7 @@ public class Customer {
         this.outstandingamt = outstandingamt;
         this.paymentamt = paymentamt;
         this.phone = phone;
-        this.receiveamt = recievingamt;
+        this.receiveamt = receiveamt;
         this.workingarea = workingarea;
         this.agent = agent;
     }
